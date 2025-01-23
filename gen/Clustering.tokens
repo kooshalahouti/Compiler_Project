@@ -1,0 +1,52 @@
+T__0=1
+T__1=2
+T__2=3
+T__3=4
+T__4=5
+T__5=6
+T__6=7
+T__7=8
+T__8=9
+T__9=10
+T__10=11
+T__11=12
+T__12=13
+T__13=14
+T__14=15
+T__15=16
+T__16=17
+T__17=18
+T__18=19
+T__19=20
+T__20=21
+T__21=22
+T__22=23
+T__23=24
+STRING_LITERAL=25
+NUMBER_LITERAL=26
+FLOAT_LITERAL=27
+WS=28
+'import numpy as np'=1
+'import pandas as pd'=2
+'from sklearn.cluster import KMeans, DBSCAN, AgglomerativeClustering'=3
+'from sklearn.preprocessing import StandardScaler'=4
+'import matplotlib.pyplot as plt'=5
+'data = pd.read_csv('=6
+')'=7
+'scaler = StandardScaler()'=8
+'data_scaled = scaler.fit_transform(data)'=9
+'kmeans = KMeans(n_clusters='=10
+', random_state=42)'=11
+'kmeans_labels = kmeans.fit_predict(data_scaled)'=12
+'dbscan = DBSCAN(eps='=13
+', min_samples='=14
+'dbscan_labels = dbscan.fit_predict(data_scaled)'=15
+'agglo = AgglomerativeClustering(n_clusters='=16
+'agglo_labels = agglo.fit_predict(data_scaled)'=17
+'print('=18
+', np.unique(kmeans_labels))'=19
+', np.unique(dbscan_labels))'=20
+', np.unique(agglo_labels))'=21
+'plt.scatter(data_scaled[:, 0], data_scaled[:, 1], c=kmeans_labels, cmap='=22
+'plt.title('=23
+'plt.show()'=24
