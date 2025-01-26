@@ -8,34 +8,36 @@ from Code.ClusteringCodeGenerator import ClusteringCodeGenerator
 from Code.ClusteringCustomListener import ClusteringCustomListener
 
 def main(arg):
-    stream = FileStream(arg.file, encoding="utf-8")
+    stream = FileStream(arg.input, encoding="utf-8")
     lexer = ClusteringLexer(stream)
     token_stream = CommonTokenStream(lexer)
     parser = ClusteringParser(token_stream)
 
     parse_tree = parser.cluster()
-    ast_builder_listenerv = ClusteringCustomListener(parser.ruleNames)
+    ast_builder_listener = ClusteringCustomListener(parser.ruleNames)
     walker = ParseTreeWalker()
-    walker.walk(t=parse_tree, listener=ast_builder_listenerv)
+    walker.walk(t=parse_tree, listener=ast_builder_listener)
 
-    ast = ast_builder_listenerv.ast
+    ast = ast_builder_listener.ast
     show_ast(ast.root)
 
     traverser = PostOrderASTTraverser()
     traverser.node_attributes = ['label']
     traversal = traverser.traverse_ast(ast.root)
-    tr = [item['label'] for item in traversal]
+    print("traversal", traversal)
+    # tr = [item['label'] for item in traversal]
 
 
     generator = ClusteringCodeGenerator()
     generated = generator.generate_code(traversal)
+    print(generated)
 
-    # with open(arg.output, 'w') as out:
-    #     out.write(generated)
+    with open(arg.output, 'w') as out:
+        out.write(generated)
 
 if __name__ == "__main__":
     argparser = argparse.ArgumentParser()
-    argparser.add_argument('-n', '--file', help='Input source', default=r'input.txt')
-    # argparser.add_argument('-o', '--output', help='Output path', default=r'gen.py')
+    argparser.add_argument('-i', '--input', help='Input source', default=r'input.txt')
+    argparser.add_argument('-o', '--output', help='Output path', default=r'gen.py')
     args = argparser.parse_args()
     main(args)

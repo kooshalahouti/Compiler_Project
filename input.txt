@@ -1,1 +1,1 @@
-DBSCAN(n_clusters=3)
+KMeans(n_clusters=3, n_iters=4) plot(x = salam, y = boo) dataset(file = "df.py")

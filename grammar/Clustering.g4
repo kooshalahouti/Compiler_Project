@@ -1,6 +1,6 @@
 grammar Clustering;
 
-cluster: clustering_method '(' args (',' args)* ')';
+cluster: clustering_method '(' args (',' args)* ')' plot? dataset?;
 clustering_method: 'KMeans' | 'DBSCAN' | 'AgglomerativeClustering' | 'SpectralClustering';
 
 args: n_clusters | n_iters | random_state | epsilon | min_sample | linkage | affinity;
@@ -13,6 +13,13 @@ min_sample: 'min_sample' '=' NUM;
 linkage: 'linkage' '=' LINKAGE_TYPE;
 affinity: 'affinity' '=' AFFINITY_TYPE;
 
+plot: 'plot' '(' plot_args? ')';
+plot_args: 'x' '=' VAR ',' 'y' '=' VAR;
+
+dataset: 'dataset' '(' 'file' '=' STRING ')';
+
+VAR: [a-zA-Z_][a-zA-Z0-9_]*;
+STRING: '"' (~["\r\n])* '"';
 NUM: [0-9]+;
 FLOAT: [0-9]+ '.' [0-9]+;
 LINKAGE_TYPE: 'ward' | 'complete' | 'average' | 'single';
