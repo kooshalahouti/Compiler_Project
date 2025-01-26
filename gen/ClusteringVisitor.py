@@ -9,6 +9,11 @@ else:
 
 class ClusteringVisitor(ParseTreeVisitor):
 
+    # Visit a parse tree produced by ClusteringParser#program.
+    def visitProgram(self, ctx:ClusteringParser.ProgramContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by ClusteringParser#cluster.
     def visitCluster(self, ctx:ClusteringParser.ClusterContext):
         return self.visitChildren(ctx)
@@ -19,43 +24,28 @@ class ClusteringVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ClusteringParser#args.
-    def visitArgs(self, ctx:ClusteringParser.ArgsContext):
+    # Visit a parse tree produced by ClusteringParser#assign.
+    def visitAssign(self, ctx:ClusteringParser.AssignContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ClusteringParser#n_clusters.
-    def visitN_clusters(self, ctx:ClusteringParser.N_clustersContext):
+    # Visit a parse tree produced by ClusteringParser#expr.
+    def visitExpr(self, ctx:ClusteringParser.ExprContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ClusteringParser#n_iters.
-    def visitN_iters(self, ctx:ClusteringParser.N_itersContext):
+    # Visit a parse tree produced by ClusteringParser#plot.
+    def visitPlot(self, ctx:ClusteringParser.PlotContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ClusteringParser#random_state.
-    def visitRandom_state(self, ctx:ClusteringParser.Random_stateContext):
+    # Visit a parse tree produced by ClusteringParser#plot_args.
+    def visitPlot_args(self, ctx:ClusteringParser.Plot_argsContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ClusteringParser#epsilon.
-    def visitEpsilon(self, ctx:ClusteringParser.EpsilonContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by ClusteringParser#min_sample.
-    def visitMin_sample(self, ctx:ClusteringParser.Min_sampleContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by ClusteringParser#linkage.
-    def visitLinkage(self, ctx:ClusteringParser.LinkageContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by ClusteringParser#affinity.
-    def visitAffinity(self, ctx:ClusteringParser.AffinityContext):
+    # Visit a parse tree produced by ClusteringParser#dataset.
+    def visitDataset(self, ctx:ClusteringParser.DatasetContext):
         return self.visitChildren(ctx)
 
 

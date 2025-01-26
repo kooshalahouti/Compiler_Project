@@ -5,7 +5,7 @@ from gen.ClusteringParser import ClusteringParser
 from Repository.ast_to_networkx_graph import show_ast
 from Repository.post_order_ast_traverser import PostOrderASTTraverser
 from Code.ClusteringCodeGenerator import ClusteringCodeGenerator
-from Code.ClusteringCustomListener import ClusteringListener
+from Code.ClusteringCustomListener import ClusteringCustomListener
 
 def main(arg):
     stream = FileStream(arg.input, encoding="utf-8")
@@ -13,8 +13,8 @@ def main(arg):
     token_stream = CommonTokenStream(lexer)
     parser = ClusteringParser(token_stream)
 
-    parse_tree = parser.network()
-    ast_builder_listenerv = ClusteringListener(parser.ruleNames)
+    parse_tree = parser.cluster()
+    ast_builder_listenerv = ClusteringCustomListener(parser.ruleNames)
     walker = ParseTreeWalker()
     walker.walk(t=parse_tree, listener=ast_builder_listenerv)
 
@@ -34,6 +34,6 @@ def main(arg):
 if __name__ == "__main__":
     argparser = argparse.ArgumentParser()
     argparser.add_argument('-i', '--input', help='Input source', default=r'input.txt')
-    argparser.add_argument('-o', '--output', help='Output path', default=r'gen.py')
+    # argparser.add_argument('-o', '--output', help='Output path', default=r'gen.py')
     args = argparser.parse_args()
     main(args)

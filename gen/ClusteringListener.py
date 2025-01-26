@@ -8,6 +8,15 @@ else:
 # This class defines a complete listener for a parse tree produced by ClusteringParser.
 class ClusteringListener(ParseTreeListener):
 
+    # Enter a parse tree produced by ClusteringParser#program.
+    def enterProgram(self, ctx:ClusteringParser.ProgramContext):
+        pass
+
+    # Exit a parse tree produced by ClusteringParser#program.
+    def exitProgram(self, ctx:ClusteringParser.ProgramContext):
+        pass
+
+
     # Enter a parse tree produced by ClusteringParser#cluster.
     def enterCluster(self, ctx:ClusteringParser.ClusterContext):
         pass
@@ -26,75 +35,48 @@ class ClusteringListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by ClusteringParser#args.
-    def enterArgs(self, ctx:ClusteringParser.ArgsContext):
+    # Enter a parse tree produced by ClusteringParser#assign.
+    def enterAssign(self, ctx:ClusteringParser.AssignContext):
         pass
 
-    # Exit a parse tree produced by ClusteringParser#args.
-    def exitArgs(self, ctx:ClusteringParser.ArgsContext):
-        pass
-
-
-    # Enter a parse tree produced by ClusteringParser#n_clusters.
-    def enterN_clusters(self, ctx:ClusteringParser.N_clustersContext):
-        pass
-
-    # Exit a parse tree produced by ClusteringParser#n_clusters.
-    def exitN_clusters(self, ctx:ClusteringParser.N_clustersContext):
+    # Exit a parse tree produced by ClusteringParser#assign.
+    def exitAssign(self, ctx:ClusteringParser.AssignContext):
         pass
 
 
-    # Enter a parse tree produced by ClusteringParser#n_iters.
-    def enterN_iters(self, ctx:ClusteringParser.N_itersContext):
+    # Enter a parse tree produced by ClusteringParser#expr.
+    def enterExpr(self, ctx:ClusteringParser.ExprContext):
         pass
 
-    # Exit a parse tree produced by ClusteringParser#n_iters.
-    def exitN_iters(self, ctx:ClusteringParser.N_itersContext):
-        pass
-
-
-    # Enter a parse tree produced by ClusteringParser#random_state.
-    def enterRandom_state(self, ctx:ClusteringParser.Random_stateContext):
-        pass
-
-    # Exit a parse tree produced by ClusteringParser#random_state.
-    def exitRandom_state(self, ctx:ClusteringParser.Random_stateContext):
+    # Exit a parse tree produced by ClusteringParser#expr.
+    def exitExpr(self, ctx:ClusteringParser.ExprContext):
         pass
 
 
-    # Enter a parse tree produced by ClusteringParser#epsilon.
-    def enterEpsilon(self, ctx:ClusteringParser.EpsilonContext):
+    # Enter a parse tree produced by ClusteringParser#plot.
+    def enterPlot(self, ctx:ClusteringParser.PlotContext):
         pass
 
-    # Exit a parse tree produced by ClusteringParser#epsilon.
-    def exitEpsilon(self, ctx:ClusteringParser.EpsilonContext):
-        pass
-
-
-    # Enter a parse tree produced by ClusteringParser#min_sample.
-    def enterMin_sample(self, ctx:ClusteringParser.Min_sampleContext):
-        pass
-
-    # Exit a parse tree produced by ClusteringParser#min_sample.
-    def exitMin_sample(self, ctx:ClusteringParser.Min_sampleContext):
+    # Exit a parse tree produced by ClusteringParser#plot.
+    def exitPlot(self, ctx:ClusteringParser.PlotContext):
         pass
 
 
-    # Enter a parse tree produced by ClusteringParser#linkage.
-    def enterLinkage(self, ctx:ClusteringParser.LinkageContext):
+    # Enter a parse tree produced by ClusteringParser#plot_args.
+    def enterPlot_args(self, ctx:ClusteringParser.Plot_argsContext):
         pass
 
-    # Exit a parse tree produced by ClusteringParser#linkage.
-    def exitLinkage(self, ctx:ClusteringParser.LinkageContext):
+    # Exit a parse tree produced by ClusteringParser#plot_args.
+    def exitPlot_args(self, ctx:ClusteringParser.Plot_argsContext):
         pass
 
 
-    # Enter a parse tree produced by ClusteringParser#affinity.
-    def enterAffinity(self, ctx:ClusteringParser.AffinityContext):
+    # Enter a parse tree produced by ClusteringParser#dataset.
+    def enterDataset(self, ctx:ClusteringParser.DatasetContext):
         pass
 
-    # Exit a parse tree produced by ClusteringParser#affinity.
-    def exitAffinity(self, ctx:ClusteringParser.AffinityContext):
+    # Exit a parse tree produced by ClusteringParser#dataset.
+    def exitDataset(self, ctx:ClusteringParser.DatasetContext):
         pass
 
 
