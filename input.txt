@@ -1,1 +1,1 @@
-DBSCAN(n_clusters = 5)
+DBSCAN(n_clusters=3)

@@ -8,7 +8,7 @@ from Code.ClusteringCodeGenerator import ClusteringCodeGenerator
 from Code.ClusteringCustomListener import ClusteringCustomListener
 
 def main(arg):
-    stream = FileStream(arg.input, encoding="utf-8")
+    stream = FileStream(arg.file, encoding="utf-8")
     lexer = ClusteringLexer(stream)
     token_stream = CommonTokenStream(lexer)
     parser = ClusteringParser(token_stream)
@@ -24,16 +24,18 @@ def main(arg):
     traverser = PostOrderASTTraverser()
     traverser.node_attributes = ['label']
     traversal = traverser.traverse_ast(ast.root)
+    tr = [item['label'] for item in traversal]
+
 
     generator = ClusteringCodeGenerator()
     generated = generator.generate_code(traversal)
 
-    with open(arg.output, 'w') as out:
-        out.write(generated)
+    # with open(arg.output, 'w') as out:
+    #     out.write(generated)
 
 if __name__ == "__main__":
     argparser = argparse.ArgumentParser()
-    argparser.add_argument('-i', '--input', help='Input source', default=r'input.txt')
+    argparser.add_argument('-n', '--file', help='Input source', default=r'input.txt')
     # argparser.add_argument('-o', '--output', help='Output path', default=r'gen.py')
     args = argparser.parse_args()
     main(args)
