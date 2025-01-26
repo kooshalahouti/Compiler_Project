@@ -1,4 +1,4 @@
-# Generated from F:/university/term 7/compiler/finalproject/Compiler_Project/grammar/Clustering.g4 by ANTLR 4.13.1
+# Generated from D:/uni/Compiler/finalProject/pythonProject/grammar/Clustering.g4 by ANTLR 4.13.1
 from antlr4 import *
 if "." in __name__:
     from .ClusteringParser import ClusteringParser
@@ -9,53 +9,53 @@ else:
 
 class ClusteringVisitor(ParseTreeVisitor):
 
-    # Visit a parse tree produced by ClusteringParser#program.
-    def visitProgram(self, ctx:ClusteringParser.ProgramContext):
+    # Visit a parse tree produced by ClusteringParser#cluster.
+    def visitCluster(self, ctx:ClusteringParser.ClusterContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ClusteringParser#imports.
-    def visitImports(self, ctx:ClusteringParser.ImportsContext):
+    # Visit a parse tree produced by ClusteringParser#clustering_method.
+    def visitClustering_method(self, ctx:ClusteringParser.Clustering_methodContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ClusteringParser#loadData.
-    def visitLoadData(self, ctx:ClusteringParser.LoadDataContext):
+    # Visit a parse tree produced by ClusteringParser#args.
+    def visitArgs(self, ctx:ClusteringParser.ArgsContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ClusteringParser#preprocessData.
-    def visitPreprocessData(self, ctx:ClusteringParser.PreprocessDataContext):
+    # Visit a parse tree produced by ClusteringParser#n_clusters.
+    def visitN_clusters(self, ctx:ClusteringParser.N_clustersContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ClusteringParser#applyClustering.
-    def visitApplyClustering(self, ctx:ClusteringParser.ApplyClusteringContext):
+    # Visit a parse tree produced by ClusteringParser#n_iters.
+    def visitN_iters(self, ctx:ClusteringParser.N_itersContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ClusteringParser#kmeansClustering.
-    def visitKmeansClustering(self, ctx:ClusteringParser.KmeansClusteringContext):
+    # Visit a parse tree produced by ClusteringParser#random_state.
+    def visitRandom_state(self, ctx:ClusteringParser.Random_stateContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ClusteringParser#dbscanClustering.
-    def visitDbscanClustering(self, ctx:ClusteringParser.DbscanClusteringContext):
+    # Visit a parse tree produced by ClusteringParser#epsilon.
+    def visitEpsilon(self, ctx:ClusteringParser.EpsilonContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ClusteringParser#aggClustering.
-    def visitAggClustering(self, ctx:ClusteringParser.AggClusteringContext):
+    # Visit a parse tree produced by ClusteringParser#min_sample.
+    def visitMin_sample(self, ctx:ClusteringParser.Min_sampleContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ClusteringParser#evaluateResults.
-    def visitEvaluateResults(self, ctx:ClusteringParser.EvaluateResultsContext):
+    # Visit a parse tree produced by ClusteringParser#linkage.
+    def visitLinkage(self, ctx:ClusteringParser.LinkageContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ClusteringParser#visualization.
-    def visitVisualization(self, ctx:ClusteringParser.VisualizationContext):
+    # Visit a parse tree produced by ClusteringParser#affinity.
+    def visitAffinity(self, ctx:ClusteringParser.AffinityContext):
         return self.visitChildren(ctx)
 
 
