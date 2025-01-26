@@ -1,1 +1,2 @@
-DBSCAN(n_clusters = 5)
+DBSCAN(epsilon=0.5, min_sample=5)
+
