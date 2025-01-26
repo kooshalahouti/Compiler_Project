@@ -1,46 +1,21 @@
 grammar Clustering;
 
-program: imports loadData preprocessData applyClustering evaluateResults visualization EOF;
+cluster: clustering_method '(' args (',' args)* ')';
+clustering_method: 'KMeans' | 'DBSCAN' | 'AgglomerativeClustering' | 'SpectralClustering';
 
-imports:
-    'import numpy as np'
-    'import pandas as pd'
-    'from sklearn.cluster import KMeans, DBSCAN, AgglomerativeClustering'
-    'from sklearn.preprocessing import StandardScaler'
-    'import matplotlib.pyplot as plt';
+args: n_clusters | n_iters | random_state | epsilon | min_sample | linkage | affinity;
 
-loadData: 'data = pd.read_csv(' STRING_LITERAL ')';
+n_clusters: 'n_clusters' '=' NUM;
+n_iters: 'n_iters' '=' NUM;
+random_state: 'random_state' '=' NUM;
+epsilon: 'epsilon' '=' FLOAT;
+min_sample: 'min_sample' '=' NUM;
+linkage: 'linkage' '=' LINKAGE_TYPE;
+affinity: 'affinity' '=' AFFINITY_TYPE;
 
-preprocessData:
-    'scaler = StandardScaler()'
-    'data_scaled = scaler.fit_transform(data)';
+NUM: [0-9]+;
+FLOAT: [0-9]+ '.' [0-9]+;
+LINKAGE_TYPE: 'ward' | 'complete' | 'average' | 'single';
+AFFINITY_TYPE: 'euclidean' | 'l1' | 'l2' | 'manhattan' | 'cosine';
 
-applyClustering: kmeansClustering dbscanClustering aggClustering;
-
-kmeansClustering:
-    'kmeans = KMeans(n_clusters=' NUMBER_LITERAL ', random_state=42)'
-    'kmeans_labels = kmeans.fit_predict(data_scaled)';
-
-dbscanClustering:
-    'dbscan = DBSCAN(eps=' FLOAT_LITERAL ', min_samples=' NUMBER_LITERAL ')'
-    'dbscan_labels = dbscan.fit_predict(data_scaled)';
-
-aggClustering:
-    'agglo = AgglomerativeClustering(n_clusters=' NUMBER_LITERAL ')'
-    'agglo_labels = agglo.fit_predict(data_scaled)';
-
-evaluateResults:
-    'print(' STRING_LITERAL ', np.unique(kmeans_labels))'
-    'print(' STRING_LITERAL ', np.unique(dbscan_labels))'
-    'print(' STRING_LITERAL ', np.unique(agglo_labels))';
-
-visualization:
-    'plt.scatter(data_scaled[:, 0], data_scaled[:, 1], c=kmeans_labels, cmap=' STRING_LITERAL ')'
-    'plt.title(' STRING_LITERAL ')'
-    'plt.show()';
-
-STRING_LITERAL: '"' (~["\\] | '\\' .)* '"';
-NUMBER_LITERAL: [0-9]+;
-FLOAT_LITERAL: [0-9]+ '.' [0-9]+;
-
-WS: [ \t\r\n]+ -> skip;
+WS : [ \t\r\n}]+ -> skip;
