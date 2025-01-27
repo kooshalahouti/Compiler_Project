@@ -98,5 +98,32 @@ class ClusteringListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by ClusteringParser#plot.
+    def enterPlot(self, ctx:ClusteringParser.PlotContext):
+        pass
+
+    # Exit a parse tree produced by ClusteringParser#plot.
+    def exitPlot(self, ctx:ClusteringParser.PlotContext):
+        pass
+
+
+    # Enter a parse tree produced by ClusteringParser#plot_args.
+    def enterPlot_args(self, ctx:ClusteringParser.Plot_argsContext):
+        pass
+
+    # Exit a parse tree produced by ClusteringParser#plot_args.
+    def exitPlot_args(self, ctx:ClusteringParser.Plot_argsContext):
+        pass
+
+
+    # Enter a parse tree produced by ClusteringParser#dataset.
+    def enterDataset(self, ctx:ClusteringParser.DatasetContext):
+        pass
+
+    # Exit a parse tree produced by ClusteringParser#dataset.
+    def exitDataset(self, ctx:ClusteringParser.DatasetContext):
+        pass
+
+
 
 del ClusteringParser

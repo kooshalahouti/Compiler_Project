@@ -59,5 +59,20 @@ class ClusteringVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by ClusteringParser#plot.
+    def visitPlot(self, ctx:ClusteringParser.PlotContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by ClusteringParser#plot_args.
+    def visitPlot_args(self, ctx:ClusteringParser.Plot_argsContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by ClusteringParser#dataset.
+    def visitDataset(self, ctx:ClusteringParser.DatasetContext):
+        return self.visitChildren(ctx)
+
+
 
 del ClusteringParser
